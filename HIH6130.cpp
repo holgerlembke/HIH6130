@@ -67,7 +67,7 @@ bool HIH6130::readRHT() {
                  * 100.0 / ((1 << 14) - 1.0);
 
       // Calculate Temperature
-      temperature = (double) (((unsigned int) (_temp_hi << 6) + (_temp_lo >> 2))
+      temperature = (double) (((unsigned int) (((_temp_hi << 8) + _temp_lo) >> 2) )
                               / ((1 << 14) - 1.0) * 165.0 - 40.0);
       return true;
     }
